@@ -1,0 +1,57 @@
+---
+title: "How to Set Up Git on Windows (The Right Way)"
+tag: "Dev Setup"
+tagColor: "#FF6B35"
+readTime: "8 min read"
+lastUpdated: "March 2025"
+intro: "Git is the #1 tool every developer uses daily — but most tutorials skip the proper setup. This guide gets it right the first time."
+---
+
+## What is Git, actually?
+
+Git is a **version control system**. Think of it like a time machine for your code — it remembers every change you ever made, who made it, and why. If you break something, you can go back.
+
+> **GitHub is not Git.** Git is the tool. GitHub is a website that hosts your Git projects online. This confuses almost everyone at first.
+
+## Step 1 — Download and install Git
+
+Go to [git-scm.com](https://git-scm.com) and download the Windows installer. Run it with all default options. When it asks which editor to use, pick VS Code.
+
+After installing, open a new terminal and run:
+```bash
+git --version
+# You should see: git version 2.44.0
+```
+
+## Step 2 — Tell Git who you are
+
+This is the step most tutorials skip. Git needs your name and email to label your commits:
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+# Verify it worked:
+git config --list
+```
+
+## Step 3 — Your first repository
+
+A repository (repo) is just a folder that Git is tracking.
+```bash
+mkdir my-first-repo
+cd my-first-repo
+git init
+echo "Hello Git" > readme.txt
+git add readme.txt
+git commit -m "my first commit"
+```
+
+## Common mistakes beginners make
+
+- **Forgetting `git add`** before `git commit` — nothing gets saved without staging first
+- **Being in the wrong folder** — always check you're inside your project folder
+- **Committing to main directly** — in real teams, you always create a branch first
+
+## What to learn next
+
+Now that Git is set up, connect it to GitHub so your code is backed up online, then learn the 5 commands you'll use every single day.
