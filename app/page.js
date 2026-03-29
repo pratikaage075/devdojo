@@ -18,11 +18,11 @@ const topics = [
 
 const featuredArticles = [
   { slug: "how-to-setup-git", tag: "Dev Setup", tagColor: "#FF6B35", title: "How to Set Up Git on Windows (The Right Way)", time: "8 min read", icon: "🛠️" },
-  { tag: "Placement Prep", tagColor: "#4ECDC4", title: "What Actually Happens in a Campus Placement Round", time: "12 min read", icon: "🎯" },
-  { tag: "Industry Reality", tagColor: "#60A5FA", title: "How to Write a Commit Message Your Team Won't Hate", time: "5 min read", icon: "🏢" },
-  { tag: "Open Source", tagColor: "#F472B6", title: "Your First Open Source PR: A Step-by-Step Walkthrough", time: "15 min read", icon: "🤝" },
-  { tag: "CS Fundamentals", tagColor: "#F59E0B", title: "What Actually Happens When You Type a URL", time: "10 min read", icon: "🧠" },
-  { tag: "Modern Tooling", tagColor: "#A78BFA", title: "npm Explained for Absolute Beginners", time: "7 min read", icon: "📦" },
+  { slug: "campus-placement-rounds", tag: "Placement Prep", tagColor: "#4ECDC4", title: "What Actually Happens in a Campus Placement Round", time: "12 min read", icon: "🎯" },
+  { slug: "commit-messages", tag: "Industry Reality", tagColor: "#60A5FA", title: "How to Write a Commit Message Your Team Won't Hate", time: "5 min read", icon: "🏢" },
+  { slug: "first-open-source-pr", tag: "Open Source", tagColor: "#F472B6", title: "Your First Open Source PR: A Step-by-Step Walkthrough", time: "15 min read", icon: "🤝" },
+  { slug: "what-happens-when-you-type-a-url", tag: "CS Fundamentals", tagColor: "#F59E0B", title: "What Actually Happens When You Type a URL", time: "10 min read", icon: "🧠" },
+  { slug: "npm-explained", tag: "Modern Tooling", tagColor: "#A78BFA", title: "npm Explained for Absolute Beginners", time: "7 min read", icon: "📦" },
 ];
 
 const stats = [

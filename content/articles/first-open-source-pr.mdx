@@ -1,0 +1,148 @@
+---
+title: "Your First Open Source PR: A Complete Walkthrough"
+tag: "Open Source"
+tagColor: "#F472B6"
+readTime: "15 min read"
+lastUpdated: "March 2025"
+intro: "Contributing to open source sounds scary but your first PR is simpler than you think. This guide walks you through every single step."
+---
+
+## Why contribute to open source?
+
+- It's the best thing you can add to a fresher resume
+- You learn to read real production code
+- You get feedback from experienced developers worldwide
+- It proves you can work in a team with Git workflows
+
+> **You don't need to be an expert.** Most first contributions are fixing typos, improving documentation, or fixing small bugs. That's completely fine and genuinely useful.
+
+## Step 1 — Find a beginner-friendly project
+
+Look for repositories with these labels on their issues:
+- `good first issue`
+- `beginner friendly`
+- `help wanted`
+- `first timers only`
+
+**Good places to start:**
+```
+github.com/explore — browse trending repos
+goodfirstissue.dev — curated beginner issues
+firstcontributions/first-contributions — practice repo just for beginners
+```
+
+For your very first PR, use `github.com/firstcontributions/first-contributions` — it's designed specifically for practice with no risk of breaking anything real.
+
+## Step 2 — Fork the repository
+
+A **fork** is your own personal copy of someone else's repository. You can change it freely without affecting the original.
+
+- Go to the repository on GitHub
+- Click the **Fork** button (top right)
+- GitHub creates `your-username/repo-name` as your copy
+
+## Step 3 — Clone your fork locally
+```bash
+# Clone YOUR fork (not the original)
+git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
+
+# Enter the folder
+cd REPO-NAME
+```
+
+## Step 4 — Create a branch
+
+**Never work directly on main.** Always create a new branch for your change:
+```bash
+# Create and switch to a new branch
+git checkout -b fix/typo-in-readme
+
+# Good branch naming:
+# feat/add-dark-mode
+# fix/login-button-alignment
+# docs/update-contributing-guide
+```
+
+## Step 5 — Make your change
+
+Now make the actual change. For your first PR, something small is perfect:
+- Fix a typo in the README
+- Add a missing full stop
+- Improve a confusing sentence in the docs
+- Fix a broken link
+
+## Step 6 — Commit your change
+```bash
+# Stage your changes
+git add .
+
+# Commit with a clear message
+git commit -m "docs: fix typo in README installation section"
+```
+
+## Step 7 — Push to your fork
+```bash
+git push origin fix/typo-in-readme
+```
+
+## Step 8 — Open a Pull Request
+
+- Go to your fork on GitHub
+- You'll see a yellow banner saying **"Compare & pull request"** — click it
+- Write a clear title and description
+
+**Good PR description template:**
+```
+## What does this PR do?
+Fixes a typo in the README — "instal" → "install"
+
+## Why?
+Makes the documentation clearer for new contributors.
+
+## Screenshots (if applicable)
+N/A
+```
+
+- Click **"Create pull request"**
+
+## Step 9 — Respond to feedback
+
+Maintainers may leave comments asking for changes. This is normal and not personal.
+```bash
+# Make the requested changes locally, then:
+git add .
+git commit -m "address review feedback"
+git push origin fix/typo-in-readme
+```
+
+Your PR updates automatically — no need to open a new one.
+
+## Step 10 — Your PR gets merged 🎉
+
+When the maintainer merges your PR, your code becomes part of the project. You're now an open source contributor.
+
+## Keeping your fork updated
+
+Over time the original repo moves ahead of your fork. Keep it synced:
+```bash
+# Add the original repo as "upstream"
+git remote add upstream https://github.com/ORIGINAL-OWNER/REPO-NAME.git
+
+# Fetch their latest changes
+git fetch upstream
+
+# Merge into your main branch
+git checkout main
+git merge upstream/main
+```
+
+## Common mistakes first-timers make
+
+- **Opening a PR against the wrong branch** — always check you're targeting `main` or `dev`, not your own branch
+- **Making too many changes in one PR** — one PR should do one thing
+- **Not reading CONTRIBUTING.md** — most projects have contributing guidelines, always read them first
+- **Getting discouraged if PR is rejected** — maintainers are busy, feedback is helpful not personal
+
+## What to learn next
+
+Now that you've made your first PR, learn about **rebasing** and **resolving merge conflicts** — these are the Git skills that separate beginners from intermediate developers.

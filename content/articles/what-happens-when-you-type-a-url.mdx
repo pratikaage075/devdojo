@@ -1,0 +1,76 @@
+---
+title: "What Actually Happens When You Type a URL"
+tag: "CS Fundamentals"
+tagColor: "#F59E0B"
+readTime: "10 min read"
+lastUpdated: "March 2025"
+intro: "One of the most common interview questions — and one of the most important concepts to actually understand as a developer."
+---
+
+## The short answer
+
+When you type "google.com" and press Enter, about 8 things happen in under 200 milliseconds. Your browser translates the name into an IP address, connects to a server, asks for the page, receives HTML/CSS/JS files, and renders them on screen.
+
+Let's break each step down.
+
+## Step 1 — DNS Lookup (the phonebook)
+
+Your browser doesn't understand "google.com". Computers talk in IP addresses like 142.250.80.46. DNS (Domain Name System) is like a phonebook that converts names into IP addresses.
+
+Your browser first checks its own cache. If it hasn't visited this site recently, it asks your ISP's DNS server, which traces back to the authoritative server that knows the IP for that domain.
+
+You can see this yourself — open your terminal and run:
+```bash
+nslookup google.com
+# Output:
+# Name: google.com
+# Address: 142.250.80.46
+```
+
+## Step 2 — TCP Connection
+
+Now your browser knows the IP address. It opens a connection to that server using TCP (Transmission Control Protocol). Think of TCP as a reliable phone call — it makes sure every packet of data arrives, in order, with nothing missing.
+
+For HTTPS sites (almost everything today), there's also a **TLS handshake** — your browser and the server exchange encryption keys so nobody can spy on the connection.
+
+## Step 3 — HTTP Request
+
+Your browser sends an HTTP GET request asking for the page. This is literally a text message that says "give me this page".
+```bash
+GET / HTTP/1.1
+Host: google.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+```
+
+## Step 4 — Server Response
+
+The server receives the request and sends back a response with a status code and the HTML content.
+```bash
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<html>
+  <head>...</head>
+  <body>...</body>
+</html>
+```
+
+> **200 means OK.** Other common codes: 404 means not found, 301 means redirected, 500 means server error.
+
+## Step 5 — Browser Renders the Page
+
+The browser receives HTML and builds the DOM (Document Object Model) — a tree of every element on the page. When it finds a `<link>` to CSS it fetches that. When it finds a `<script>` tag it fetches and runs JavaScript.
+
+This is why slow JavaScript blocks your page — the browser stops everything to run it.
+
+## Why this matters for developers
+
+- **Slow DNS** = slow first load. CDNs fix this by putting servers closer to users.
+- **No HTTPS** = browsers show "Not Secure" warnings. Always use HTTPS.
+- **Large JS files** = slow render. This is why bundle size matters.
+- **HTTP status codes** = you'll debug these every single day as a developer.
+
+## What to learn next
+
+Now that you understand the full request cycle, learn about **HTTP methods** (GET, POST, PUT, DELETE) and **REST APIs** — these build directly on what you just learned.

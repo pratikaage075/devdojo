@@ -1,0 +1,80 @@
+---
+title: "npm Explained for Absolute Beginners"
+tag: "Modern Tooling"
+tagColor: "#A78BFA"
+readTime: "7 min read"
+lastUpdated: "March 2025"
+intro: "npm is one of those tools everyone uses but nobody explains properly. Here's what it actually is and why it exists."
+---
+
+## What is npm?
+
+npm stands for **Node Package Manager**. It's a giant library of free, reusable code that other developers have written and shared publicly. Instead of writing everything from scratch, you download packages (bundles of code) and use them in your project.
+
+Think of it like an app store — but for code that runs inside your projects.
+
+There are over 2 million packages on npm. Things like:
+- `react` — the UI library that powers Facebook, Instagram, and your DevDojo site
+- `express` — a framework for building web servers
+- `gray-matter` — the package we use to read MDX frontmatter on this very site
+
+## The three commands you'll use 90% of the time
+```bash
+# 1. Install all packages a project needs (run this when you clone a project)
+npm install
+
+# 2. Add a specific new package to your project
+npm install package-name
+
+# 3. Run a script defined in package.json
+npm run dev
+```
+
+## What is package.json?
+
+Every project that uses npm has a `package.json` file. It's a list of everything your project depends on, plus some shortcut scripts.
+```json
+{
+  "name": "my-project",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "15.0.0",
+    "react": "18.0.0"
+  }
+}
+```
+
+> **Important:** When you share your project, never send the `node_modules` folder — it can be gigabytes in size. Just share the code and `package.json`. Anyone can run `npm install` to rebuild it.
+
+## What is node_modules?
+
+When you run `npm install`, npm downloads all the packages listed in `package.json` into a folder called `node_modules`. This folder can contain hundreds of folders even if you only installed a few packages — because each package has its own dependencies.
+```bash
+# See how many packages are installed
+ls node_modules | wc -l
+# Often 500+ even for small projects!
+```
+
+## Dependencies vs devDependencies
+```bash
+# Regular dependency — needed in production (your live site)
+npm install react
+
+# Dev dependency — only needed during development
+npm install eslint --save-dev
+```
+
+Things like linters, formatters, and testing tools go in `devDependencies`. Your actual app code goes in `dependencies`.
+
+## Common mistakes beginners make
+
+- **Committing node_modules to Git** — add `node_modules` to your `.gitignore` file
+- **Not running `npm install` after cloning** — always run it first thing
+- **Confusing npm and npx** — npm installs packages, npx runs them directly without installing
+
+## What to learn next
+
+Now that you understand npm, learn about **semantic versioning** (what `^15.0.0` means in package.json) and how to keep your packages updated safely.

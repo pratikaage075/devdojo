@@ -1,0 +1,104 @@
+---
+title: "How to Write a Commit Message Your Team Won't Hate"
+tag: "Industry Reality"
+tagColor: "#60A5FA"
+readTime: "5 min read"
+lastUpdated: "March 2025"
+intro: "Bad commit messages are one of the most common complaints senior developers have about juniors. Here's how to get it right from day one."
+---
+
+## Why commit messages matter
+
+A commit message is a note to your future self and your teammates explaining **why** a change was made. Six months from now, when something breaks, you'll search through commits trying to find what changed. Good messages save hours of debugging.
+
+Here's the difference:
+```bash
+# Bad — tells you nothing
+git commit -m "fix"
+git commit -m "changes"
+git commit -m "asdfgh"
+git commit -m "final"
+git commit -m "final final"
+
+# Good — tells you exactly what and why
+git commit -m "fix: prevent login form from submitting with empty email"
+git commit -m "feat: add dark mode toggle to navbar"
+git commit -m "docs: update README with local setup instructions"
+```
+
+## The Conventional Commits format
+
+Most professional teams use a standard called **Conventional Commits**. The format is:
+```
+type: short description in present tense
+
+Optional longer explanation if needed.
+```
+
+**Common types:**
+
+- `feat` — a new feature
+- `fix` — a bug fix
+- `docs` — documentation changes
+- `style` — formatting, no logic change
+- `refactor` — code restructure, no feature change
+- `test` — adding or fixing tests
+- `chore` — maintenance tasks (updating packages etc.)
+
+## Real examples
+```bash
+# Adding a new feature
+git commit -m "feat: add search bar to homepage"
+
+# Fixing a bug
+git commit -m "fix: correct typo in error message on login page"
+
+# Updating docs
+git commit -m "docs: add API setup guide to README"
+
+# Updating a package
+git commit -m "chore: upgrade react from 17 to 18"
+```
+
+## The rules senior developers follow
+
+- **Use present tense** — "add feature" not "added feature"
+- **Keep it under 72 characters** — so it fits in terminal output
+- **Don't end with a period**
+- **Be specific** — "fix button" is bad, "fix submit button not working on mobile" is good
+- **Explain why, not what** — the code shows what changed, the message should explain why
+
+> **One rule above all:** If someone reads your commit message without seeing the code, they should understand what changed and why.
+
+## What NOT to do
+```bash
+# Don't do these — ever
+git commit -m "WIP"
+git commit -m "testing"
+git commit -m "please work"
+git commit -m "idk"
+git commit -m "."
+```
+
+These are red flags in a code review and make you look unprofessional.
+
+## Setting up a commit message template
+
+You can set a template so you never forget the format:
+```bash
+# Create a template file
+echo "type: short description
+
+# Types: feat, fix, docs, style, refactor, test, chore
+# Keep subject under 72 chars
+# Use present tense: 'add' not 'added'" > ~/.gitmessage
+
+# Tell Git to use it
+git config --global commit.template ~/.gitmessage
+```
+
+Now every time you run `git commit` (without `-m`), your editor opens with the template.
+
+## What to learn next
+
+Once you're comfortable with commits, learn about **Git branching** and **pull requests** — these are the next things every professional developer uses daily.
